@@ -1,6 +1,7 @@
 ## Belajar Vue
+
 Belajar dari VueMastery
 
 * 01 Intro to Vue
-  - Vue Instance
-
+  * Vue Instance
+  * Attribute binding, shorthand for `v-bind` to `:`
