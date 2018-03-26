@@ -12,19 +12,24 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <a class="navbar-brand" href="">Belajar Vue</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
-      aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <div class="navbar-nav">
-        <a class="nav-item nav-link" href="">Beranda</a>
-      </div>
-    </div>
-  </nav>
   <div id="app">
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+      <a class="navbar-brand" href="">Belajar Vue</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+        aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="">Beranda</a>
+          </li>
+        </ul>
+        <span class="navbar-text">
+          Keranjang ({{ cart }})
+        </span>
+      </div>
+    </nav>
     <div class="container">
       <div class="row">
         <div class="col-md-5">
@@ -35,8 +40,8 @@
         <div class="col-md-7">
           <h2>{{ product.title }}</h2>
           <p>
-            <div class="alert alert-success" role="alert" v-if="product.inventory > 10">Stok tersedia</div>
-            <div class="alert alert-warning" role="alert" v-else-if="product.inventory > 0 && product.inventory < 10">
+            <div class="alert alert-success" role="alert" v-if="checkStock() == 'available'">Stok tersedia</div>
+            <div class="alert alert-warning" role="alert" v-else-if="checkStock() == 'warning'">
               Stok hampir habis
             </div>
             <div class="alert alert-danger" role="alert" v-else>Stok sudah habis</div>
@@ -48,9 +53,19 @@
             </ul>
           </p>
           <p>
-            <ul>
-              <li v-for="variant in product.variants" :key="variant.id">{{ variant.color }}</li>
-            </ul>
+            <div class="col-md-12">
+              <div class="row">
+                <div v-for="variant in product.variants" :key="variant.id" class="product-image-thumb">
+                  <img :src="variant.image" :alt="variant.color" v-on:click="updateProduct(variant.image)" width="50px" height="50px">
+                </div>
+              </div>
+            </div>
+          </p>
+          <p v-if="product.inStock">
+            <button type="button" class="btn btn-danger" v-on:click="addToCart()">Tambah ke Keranjang</button>
+          </p>
+          <p v-else>
+            <button type="button" class="btn btn-danger" disabled>Tambah ke Keranjang</button>
           </p>
         </div>
       </div>

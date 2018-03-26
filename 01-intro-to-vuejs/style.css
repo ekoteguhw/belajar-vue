@@ -1,7 +1,14 @@
 #app {
-  margin-top: 30px;
+  margin-top: 80px;
 }
 
 .card {
   width: 24rem;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.product-image-thumb {
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  padding: 5px;
+  margin-right: 10px;
 }
