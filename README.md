@@ -2,7 +2,9 @@
 
 Belajar dari VueMastery
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/27hRU0E-ync" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=27hRU0E-ync" target="_blank">
+<img src="http://img.youtube.com/vi/27hRU0E-ync/0.jpg" alt="Belajar Vuejs" width="560" height="315" border="10" />
+</a>
 
 * 01 Intro to Vue
   * Vue Instance
