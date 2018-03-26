@@ -26,19 +26,31 @@
   </nav>
   <div id="app">
     <div class="container">
-      <div class="card">
-        <div class="card-header">
-          <h5 class="text-center">{{ product.title }}</h5>
+      <div class="row">
+        <div class="col-md-5">
+          <div class="card">
+            <img class="card-img-top" :src="product.image" :alt="product.title">
+          </div>
         </div>
-        <img class="card-img-top" :src="product.image" :alt="product.title">
-        <div class="card-body">
-          <p class="card-text">{{ product.description}}</p>
+        <div class="col-md-7">
+          <h2>{{ product.title }}</h2>
           <p>
             <div class="alert alert-success" role="alert" v-if="product.inventory > 10">Stok tersedia</div>
             <div class="alert alert-warning" role="alert" v-else-if="product.inventory > 0 && product.inventory < 10">
               Stok hampir habis
             </div>
             <div class="alert alert-danger" role="alert" v-else>Stok sudah habis</div>
+          </p>
+          <h5>Deskripsi:</h5>
+          <p>
+            <ul class="list-group">
+              <li v-for="desc in product.description" class="list-group-item">{{ desc }}</li>
+            </ul>
+          </p>
+          <p>
+            <ul>
+              <li v-for="variant in product.variants" :key="variant.id">{{ variant.color }}</li>
+            </ul>
           </p>
         </div>
       </div>

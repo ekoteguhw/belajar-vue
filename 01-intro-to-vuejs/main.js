@@ -3,10 +3,31 @@ const app = new Vue({
   data: {
     product: {
       title: 'Kaos kaki',
-      description:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam iusto sit tempore, expedita, quis repellat at minima error quidem labore sint et rerum. Obcaecati architecto quia ipsa placeat suscipit a.',
+      description: [
+        'Bahan katun 80%',
+        'Bahan polyester 20%',
+        'Nyaman untuk semua gender',
+      ],
       image: './assets/kaoskaki.jpg',
       inventory: 50,
+      variants: [
+        {
+          id: 1,
+          color: 'gray',
+        },
+        {
+          id: 2,
+          color: 'blue',
+        },
+        {
+          id: 3,
+          color: 'brown',
+        },
+        {
+          id: 4,
+          color: 'black',
+        },
+      ],
     },
   },
 });
