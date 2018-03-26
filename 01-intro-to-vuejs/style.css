@@ -3,12 +3,5 @@
 }
 
 .card {
-  text-align: center;
   width: 30rem;
-}
-
-h5 {
-  background-color: #007bff;
-  line-height: 50px;
-  color: white;
 }

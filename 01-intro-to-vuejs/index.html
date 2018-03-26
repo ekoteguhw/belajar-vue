@@ -27,10 +27,19 @@
   <div id="app">
     <div class="container">
       <div class="card">
+        <div class="card-header">
+          <h5 class="text-center">{{ product.title }}</h5>
+        </div>
         <img class="card-img-top" :src="product.image" :alt="product.title">
         <div class="card-body">
-          <h5 class="card-title">{{ product.title }}</h5>
           <p class="card-text">{{ product.description}}</p>
+          <p>
+            <div class="alert alert-success" role="alert" v-if="product.inventory > 10">Stok tersedia</div>
+            <div class="alert alert-warning" role="alert" v-else-if="product.inventory > 0 && product.inventory < 10">
+              Stok hampir habis
+            </div>
+            <div class="alert alert-danger" role="alert" v-else>Stok sudah habis</div>
+          </p>
         </div>
       </div>
     </div>
