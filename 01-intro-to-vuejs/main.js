@@ -1,7 +1,10 @@
 const app = new Vue({
   el: '#app',
   data: {
-    product: 'Kaos kaki',
-    description: 'Hangat dan nyaman buat dipakai.'
-  }
-})
+    product: {
+      title: 'Kaos kaki',
+      description: 'Kaos kaki yang nyaman dan enak.',
+      image: './assets/kaoskaki.jpg',
+    },
+  },
+});
